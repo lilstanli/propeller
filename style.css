@@ -1,0 +1,49 @@
+
+.flip_icon {
+    transform: rotate(180deg);
+}
+
+
+.accordion {
+    padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.acc_section {
+    border: none;
+}
+.section_header {
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+    cursor: pointer;
+    background: #7400b8;
+    border-bottom: 5px solid #570085;
+}
+
+.accordion.active .section_header{
+    background: #ac00af!important;
+    border-bottom: 5px solid #73007d!important;
+}
+
+.section_contents {
+    display: none;
+    padding: 20px;
+    color: #888;
+    font-size: 1.2em;
+    border: 2px solid #eaeaea;
+    margin-bottom: 3px;
+}
+.accordion.active .section_contents {
+    display: block;
+}
+.arrow_icon {
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    font-size: 2.5em!important;
+    font-weight: 700!important;
+    font-style: normal;
+}
