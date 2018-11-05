@@ -3,16 +3,16 @@ const url = 'https://design.propcom.co.uk/buildtest/accordion-data.json'
 const createAccordionItem = (item, accordionParent) => {
   //Create a generic accordion section container and set class attibute
   const accordionBlock = document.createElement('div');
-  accordionBlock.classList.add("accordion");
+  accordionBlock.classList.add("accordion_block");
     
   //Create a generic accordion section header container and set class attibutes
   const blockHead = document.createElement('div');
-  blockHead.classList.add('section_header');
+  blockHead.classList.add('block_header');
 
     
   //Create a generic accordion section contents container set class attibute
   const blockContent = document.createElement('div');
-  blockContent.classList.add('section_contents');
+  blockContent.classList.add('block_contents');
   
   //Create a header element
   const heading = document.createElement('h1');
@@ -51,36 +51,41 @@ const renderAccordion = ({ blocks }) => {
 
 function initAccordion(accordionEl) {
 
-  //when an accordion header is clicked, handleAccordionClick is called.          
+  //handleAccordionClick is called.          
   function handleAccordionClick(event) {
     showAccordion(event.currentTarget);
   }
 
-  // Hide current Accordion and show new accordion.  
+  // Hide current and show new.  
   function showAccordion(accordion){
-    //Hide current one. First time it will be null. 
-     var expandedAccordion = accordionEl.querySelector(".active");
+
+    //Hide current 
+    let expandedAccordion = accordionEl.querySelector(".active");
+
      if (expandedAccordion){
-         expandedAccordion.classList.remove("active");
-     }
-     //Show new one
+          expandedAccordion.classList.remove("active");
+          expandedAccordion.firstChild.lastChild.classList.remove("flip_icon");
+    }
+     //Show another
      accordion.classList.add("active");
+     accordion.firstChild.lastChild.classList.add("flip_icon")
 
   }
 
-  var allAccordionEls = accordionEl.querySelectorAll(".accordion");
-  for (var i = 0, len = allAccordionEls.length; i < len; i++){
+  let allAccordionEls = accordionEl.querySelectorAll(".accordion_block");
+  for (let i = 0, len = allAccordionEls.length; i < len; i++){
        allAccordionEls[i].addEventListener("click", handleAccordionClick);
   }
-
+  //By Default Show first accordion
+  showAccordion(allAccordionEls[0])
 }
 
 const loadData = () => {
-  var xhttp;
+  let xhttp;
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
+      let data = JSON.parse(this.responseText);
       renderAccordion(data);
     }
   };

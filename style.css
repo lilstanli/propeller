@@ -4,7 +4,7 @@
 }
 
 
-.accordion {
+#accordion {
     padding: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -12,23 +12,23 @@
 .acc_section {
     border: none;
 }
-.section_header {
+.block_header {
     position: relative;
     padding: 15px;
     color: #fff;
     font-weight: 700;
     font-style: italic;
     cursor: pointer;
+    background: #ac00af;
+    border-bottom: 5px solid #73007d;
+}
+
+.accordion_block.active .block_header{
     background: #7400b8;
     border-bottom: 5px solid #570085;
 }
 
-.accordion.active .section_header{
-    background: #ac00af!important;
-    border-bottom: 5px solid #73007d!important;
-}
-
-.section_contents {
+.block_contents {
     display: none;
     padding: 20px;
     color: #888;
@@ -36,7 +36,7 @@
     border: 2px solid #eaeaea;
     margin-bottom: 3px;
 }
-.accordion.active .section_contents {
+.accordion_block.active .block_contents {
     display: block;
 }
 .arrow_icon {
