@@ -1,12 +1,16 @@
-
-.flip_icon {
-    transform: rotate(180deg);
-}
-
-
+@media (min-width: 768px) { 
+    #accordion {
+        width: 768px;
+        margin: 0 auto;
+    }
+ }
 #accordion {
     padding: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.flip_icon {
+    transform: rotate(180deg);
 }
 
 .acc_section {
